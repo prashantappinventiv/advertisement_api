@@ -1,0 +1,77 @@
+tags:
+  - name: User Signup
+  - name: User Login
+  - name: User Post
+
+paths:
+  /routes/signup:
+    post:
+      summary: Create a new user in database
+      tags:
+        -User Signup
+      description: Register user with their details
+      requestBody:
+         required: true
+         content:
+           application/json:
+             schema:
+               type: object
+               properties:
+                 id:
+                   type: number
+                 firstName:
+                   type:string
+                 lastName:
+                   type:string
+                 email:
+                   type:string
+                 password:
+                   type:number
+                 status:
+                   type:string
+                 mob_no:
+                   type:bigint
+                 gender:
+                   type:string
+      responses:
+        '201':
+          description:user signup successful
+        '404':
+          description:user already exist
+        
+paths:
+  /routes/login:
+    post:
+      summary: Log in api
+      tags:
+        -User Login
+      description: User can login with their details
+      requestBody:
+         required: true
+         content:
+           application/json:
+             schema:
+               type: object
+               properties:
+                 email:
+                   type:string
+                 password:
+                   type:number
+      responses:
+        '500':
+          description:internal server error
+
+paths:
+  /routes/addProduct:
+    post:
+      summary: User can add product
+      tags:
+        -User Login
+      description: User can login with their details
+      requestBody:
+         required: true
+         content:
+           application/json:
+             schema:
+               type: object
+               properties:
